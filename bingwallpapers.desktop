@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Name=bing wallpaper
+GenericName=Bing Wallpaper
+Comment=Set Bing Wallpaper
+Exec=/home/brain/Developer/Github/SetWallpaperBingUbuntuGnome/bingwallpapers.sh
+Terminal=false
+Type=Application
+Name[pt_BR]=bingwallpapers
