@@ -35,4 +35,7 @@ fi
 #Definir como papel de parede
 gsettings set org.gnome.desktop.background picture-uri $saveDir$picName
 
+#Definir como plano de fundo de tela de bloqueio
+gsettings set org.gnome.desktop.screensaver picture-uri $saveDir$picName
+
 exit
