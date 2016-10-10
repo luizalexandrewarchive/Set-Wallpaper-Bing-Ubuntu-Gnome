@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Verifica a conexão com a internet
+ping www.google.com -c 1 >/dev/null;
+if [ "$?" != "0" ] ;
+then
+   exit
+fi
+
 bing="www.bing.com"
 
 # Parametros válidos: pt-BR, en-US, zh-CN, ja-JP, en-AU, en-UK, de-DE, en-NZ, en-CA.
