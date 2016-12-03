@@ -22,7 +22,6 @@ picExt=".jpg"
 
 desiredPicURL=$bing$(echo $(curl -s $xmlURL) | grep -oP "<urlBase>(.*)</urlBase>" | cut -d ">" -f 2 | cut -d "<" -f 1)$desiredPicRes$picExt
 defaultPicURL=$bing$(echo $(curl -s $xmlURL) | grep -oP "<url>(.*)</url>" | cut -d ">" -f 2 | cut -d "<" -f 1)
-titulo=$(echo $(curl -s $xmlURL) | grep -oP "<copyright>(.*)</copyright>" | cut -d ">" -f 2 | cut -d "(" -f 1)
 
 if wget --quiet --spider "$desiredPicURL"
 then
@@ -40,6 +39,7 @@ gsettings set org.gnome.desktop.background picture-uri $saveDir$picName
 gsettings set org.gnome.desktop.screensaver picture-uri $saveDir$picName
 
 #Envia notificação sobre o tema da imagem
+titulo=$(echo $(curl -s $xmlURL) | grep -oP "<copyright>(.*)</copyright>" | cut -d ">" -f 2 | cut -d "(" -f 1)
 descricao="É o tema de seu Wallpaper hoje."
 notify-send "$titulo" "$descricao" --icon=dialog-information
 
