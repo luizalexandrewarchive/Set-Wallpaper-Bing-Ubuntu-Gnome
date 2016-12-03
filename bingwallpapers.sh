@@ -39,6 +39,11 @@ else
     curl -s -o $saveDir$picName $defaultPicURL
 fi
 
+#Envia notificação sobre o tema da imagem
+titulo=$(echo $(curl -s $xmlURL) | grep -oP "<copyright>(.*)</copyright>" | cut -d ">" -f 2 | cut -d "(" -f 1)
+descricao="É o tema de seu Wallpaper hoje."
+notify-send "$titulo" "$descricao" --icon=dialog-information
+
 #Definir como papel de parede
 gsettings set org.gnome.desktop.background picture-uri $saveDir$picName
 
